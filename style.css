@@ -1,0 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(226, 66, 25);
+}
+
+.btn {
+    margin: 20px;
+    padding: 20px 50px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: 900;
+    background-color:darkred;
+    color:red;
+    border:none;
+    border-radius: 20px;
+    transition: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.btn:hover {
+    transform: translatey(-2px);
+    cursor: pointer;
+}
+
+.btn:active {
+    transition-duration: 0.05s;
+    color:darkred;
+    background-color: red;
+}
+
+header h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
