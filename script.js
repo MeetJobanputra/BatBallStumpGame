@@ -1,19 +1,28 @@
 alert("Let's Play!");
 
-let score = {
-    gamesPlayed : 0,
-    yourScore : 0,
-    computerScore : 0,
-    ties : 0,
-    conclusion : '',
-    displayScore(result) {
-        score.conclusion = conclude(score.yourScore, score.computerScore);
-        alert(`Your choice: ${userChoice}\nComputer choice: ${cpuChoice}\nResult: ${result}\n\nGames played: ${score.gamesPlayed}\nYour score: ${score.yourScore}\nComputer score: ${score.computerScore}\nTies: ${score.ties}\n${score.conclusion}`);    
-    }
-};
-
 let cpuChoice;
 let userChoice;
+let score;
+
+let scoreStr = localStorage.getItem('userScore');
+if (scoreStr != null) {
+    score = JSON.parse(scoreStr);
+} else {
+    score = {
+        gamesPlayed : 0,
+        yourScore : 0,
+        computerScore : 0,
+        ties : 0,
+        conclusion : '',
+    };
+}
+
+
+score.displayScore = function(result) {
+    alert(`Your choice: ${userChoice}\nComputer choice: ${cpuChoice}\nResult: ${result}\n\nGames played: ${score.gamesPlayed}\nYour score: ${score.yourScore}\nComputer score: ${score.computerScore}\nTies: ${score.ties}\n${score.conclusion}`);    
+}
+
+
 
 function getCpuChoice () {
     let choice = Math.trunc((Math.random() * 3));
@@ -24,16 +33,19 @@ function getCpuChoice () {
 
 
 function getResult (user, cpu) {
+    let gameResult;
     score.gamesPlayed++;
     if (user === cpu) {
         score.ties++;
-        return resultMsg('Tie.'); 
-    }
-    return (condition(user, cpu)) ? (score.yourScore++ && resultMsg('You won!!!')) : (score.computerScore++ && resultMsg('You lost.'));
+        gameResult = 'Tie.';
+    } else gameResult = (condition(user, cpu)) ? (score.yourScore++ && (gameResult = 'You won!!!')) : (score.computerScore++ && (gameResult = 'You lost.'));
+    score.conclusion = conclude(score.yourScore, score.computerScore);
+    localStorage.setItem('userScore', JSON.stringify(score));
+    return resultMsg(gameResult);
 }
 
 function resultMsg (result) {
-    score.displayScore(result);
+    return score.displayScore(result);
 }
 
 function condition (user, cpu) {
