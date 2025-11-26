@@ -6,7 +6,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(226, 66, 25);
+    background: linear-gradient(135deg, #21c483, #126aad);
 }
 
 .btn {
@@ -15,9 +15,9 @@ body {
     width: 200px;
     font-size: 20px;
     font-weight: 900;
-    background-color:darkred;
-    color:red;
-    border:none;
+    background-color:#003A3E;
+    color:#00ff88;
+    border: 5px #00ff88 solid;
     border-radius: 20px;
     transition: all;
     transition-timing-function: ease-in-out;
@@ -31,8 +31,9 @@ body {
 
 .btn:active {
     transition-duration: 0.05s;
-    color:darkred;
-    background-color: red;
+    color: navy;
+    background-color: lime;
+    border-color: navy;
 }
 
 header h1 {
@@ -41,8 +42,7 @@ header h1 {
 }
 
 main {
-    width:90vw;
-    display: felx;
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
