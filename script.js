@@ -3,8 +3,14 @@ alert("Let's Play!");
 let cpuChoice;
 let userChoice;
 let score;
-
 let scoreStr = localStorage.getItem('userScore');
+
+let resetBtn = document.createElement('Button');
+document.querySelector('main').appendChild(resetBtn);
+document.querySelector('main').childNodes[9].classList.add('btn');
+document.querySelectorAll('.btn')[3].id = 'reset';
+document.querySelector('#reset').innerText = 'Reset';
+
 if (scoreStr != null) {
     score = JSON.parse(scoreStr);
 } else {
@@ -56,5 +62,4 @@ function conclude (userScore, cpuScore) {
     if (userScore === cpuScore) return 'No one is winning';
     return (userScore > cpuScore) ? 'You are winning!' : 'Computer is winning.';
 }
-
 
