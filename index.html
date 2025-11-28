@@ -29,11 +29,17 @@
 
         <button class="btn" id="reset" onclick="
             localStorage.clear();
+            location.reload();
+            alert('Your score has been reset.');
         ">reset</button>
-
     </main>
+    <section id="matches" class="score"></section>
+    <section id="show-score">
+        <section id="move" class="score"></section>
+        <section id="final-score" class="score"></section>
+    </section>
+    <section id="conclusion" class="score"></section>
     <script src="script.js">
-        
     </script>
 </body>
 </html>
