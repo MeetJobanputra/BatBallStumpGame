@@ -1,15 +1,9 @@
 alert("Let's Play!");
 
-let cpuChoice;
+let cpuChoice = 10;
 let userChoice;
 let score;
 let scoreStr = localStorage.getItem('userScore');
-
-let resetBtn = document.createElement('Button');
-document.querySelector('main').appendChild(resetBtn);
-document.querySelector('main').childNodes[9].classList.add('btn');
-document.querySelectorAll('.btn')[3].id = 'reset';
-document.querySelector('#reset').innerText = 'Reset';
 
 if (scoreStr != null) {
     score = JSON.parse(scoreStr);
@@ -25,10 +19,27 @@ if (scoreStr != null) {
 
 
 score.displayScore = function(result) {
-    alert(`Your choice: ${userChoice}\nComputer choice: ${cpuChoice}\nResult: ${result}\n\nGames played: ${score.gamesPlayed}\nYour score: ${score.yourScore}\nComputer score: ${score.computerScore}\nTies: ${score.ties}\n${score.conclusion}`);    
+    score.displayMove(result);
+    score.showResult();
+    score.displayMatches();
+    score.showConclusion();
 }
 
+score.displayMove = function(result) {
+    document.querySelector('#move').innerHTML = `<pre>YourChoice: ${userChoice}\nComputerChoice: ${cpuChoice}\nResult: ${result}</pre>`;
+}
 
+score.showResult = function() {
+    document.querySelector('#final-score').innerHTML = `<pre>Your score: ${score.yourScore}\nComputer score: ${score.computerScore}\nTies : ${score.ties}\n</pre>`
+}
+
+score.displayMatches = function() {
+    document.querySelector('#matches').innerHTML = `<pre>Games Played: ${score.gamesPlayed}</pre>`;
+}
+
+score.showConclusion = function() {
+    document.querySelector('#conclusion').innerHTML = `<pre>${score.conclusion}</pre>`;
+}
 
 function getCpuChoice () {
     let choice = Math.trunc((Math.random() * 3));
