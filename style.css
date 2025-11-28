@@ -90,7 +90,7 @@ main {
 .score {
     /* padding: 10px; */
     /* border: 2px solid white; */
-    color: white;
+    color: #0011ff;
     font-size: 30px;
 }
 
@@ -99,4 +99,5 @@ main {
     display: flex;
     justify-content: space-evenly;
 }
+
 
