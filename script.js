@@ -26,19 +26,19 @@ score.displayScore = function(result) {
 }
 
 score.displayMove = function(result) {
-    document.querySelector('#move').innerHTML = `<pre>YourChoice: ${userChoice}\nComputerChoice: ${cpuChoice}\nResult: ${result}</pre>`;
+    document.querySelector('#move').innerHTML = `<pre><span style="color: #ff4747">YourChoice:</span> ${userChoice}\n<span style="color: #ff4747">ComputerChoice:</span> ${cpuChoice}\n<span style="color: #ff4747">Result:</span> ${result}</pre>`;
 }
 
 score.showResult = function() {
-    document.querySelector('#final-score').innerHTML = `<pre>Your score: ${score.yourScore}\nComputer score: ${score.computerScore}\nTies : ${score.ties}\n</pre>`
+    document.querySelector('#final-score').innerHTML = `<pre><span style="color: #ff4747">Your score:</span> ${score.yourScore}\n<span style="color: #ff4747">Computer score:</span> ${score.computerScore}\n<span style="color: #ff4747">Ties :</span> ${score.ties}\n</pre>`
 }
 
 score.displayMatches = function() {
-    document.querySelector('#matches').innerHTML = `<pre>Games Played: ${score.gamesPlayed}</pre>`;
+    document.querySelector('#matches').innerHTML = `<pre><span style="color: #ff4747">Games Played:</span> ${score.gamesPlayed}</pre>`;
 }
 
 score.showConclusion = function() {
-    document.querySelector('#conclusion').innerHTML = `<pre>${score.conclusion}</pre>`;
+    document.querySelector('#conclusion').innerHTML = `<pre style="color: #00ff66ff">${score.conclusion}</pre>`;
 }
 
 function getCpuChoice () {
@@ -73,4 +73,5 @@ function conclude (userScore, cpuScore) {
     if (userScore === cpuScore) return 'No one is winning';
     return (userScore > cpuScore) ? 'You are winning!' : 'Computer is winning.';
 }
+
 
